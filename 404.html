@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open a Pulse Hero partner event.">
+  <meta name="theme-color" content="#f8f6f0">
+  <meta name="robots" content="noindex">
+  <title>Pulse Hero</title>
+  <link rel="icon" type="image/png" href="/assets/pulse-hero-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="legal-page">
+  <header class="site-header solid" data-header>
+    <a class="brand" href="/" aria-label="Pulse Hero home">
+      <img src="/assets/pulse-hero-icon.png" alt="" class="brand-mark">
+      <span>Pulse Hero</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/delete-account.html">Delete account</a>
+    </nav>
+  </header>
+
+  <main class="legal-shell">
+    <!--
+      GitHub Pages serves this file for any unmatched path, which is the only
+      way to give /e/<id> a landing page on static hosting. Event links are
+      handled here; anything else falls back to a plain not-found message.
+
+      On Android the App Links verification (/.well-known/assetlinks.json) means
+      an installed app intercepts the URL before this page ever loads — so
+      reaching this page means the app is probably NOT installed.
+    -->
+    <article class="legal-document" id="event-view" hidden>
+      <p class="eyebrow">Partner event</p>
+      <h1>Open this event in Pulse Hero</h1>
+      <p>You scanned a Pulse Hero event invite. Event code:</p>
+      <p><strong id="event-code" style="font-size:1.5rem;letter-spacing:.06em"></strong></p>
+
+      <section>
+        <h2>Already have the app?</h2>
+        <p><a class="button" id="open-app" href="#">Open in Pulse Hero</a></p>
+        <p class="fine-print">If nothing happens, open Pulse Hero manually and enter the code above.</p>
+      </section>
+
+      <section>
+        <h2>New here?</h2>
+        <p>Pulse Hero turns real training into RPG progress. Install it, then scan again or type the code.</p>
+        <p>
+          <a class="button" href="https://play.google.com/store/apps/details?id=app.fithero.fit_hero">Get it on Google Play</a>
+        </p>
+      </section>
+    </article>
+
+    <article class="legal-document" id="notfound-view" hidden>
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p>That link does not exist. <a href="/">Go to the Pulse Hero home page</a>.</p>
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      // Event ids are the same slug the app validates: letters, digits, - and _.
+      var match = location.pathname.match(/^\/e\/([A-Za-z0-9_-]+)\/?$/);
+      if (match) {
+        var id = match[1];
+        document.getElementById('event-code').textContent = id;
+        document.getElementById('open-app').href = 'fithero://event/' + encodeURIComponent(id);
+        document.getElementById('event-view').hidden = false;
+        document.title = 'Event ' + id + ' - Pulse Hero';
+      } else {
+        document.getElementById('notfound-view').hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>

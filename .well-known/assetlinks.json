@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.fithero.fit_hero",
+      "sha256_cert_fingerprints": [
+        "45:FC:35:F3:F2:34:59:BB:5A:E9:1D:93:73:18:74:4D:5A:7E:91:E1:43:B2:C5:F7:A6:0A:5C:5B:CE:A2:AD:4A",
+        "2C:36:4D:55:B4:92:75:AC:AA:67:82:AB:C6:C2:77:5A:27:00:16:75:E8:7E:87:65:8E:8F:DE:1E:B9:76:D6:C0"
+      ]
+    }
+  }
+]
