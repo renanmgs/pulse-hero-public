@@ -52,6 +52,23 @@ a {
   color: inherit;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 40;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: fixed;
@@ -108,6 +125,7 @@ a {
 
 .nav a {
   text-decoration: none;
+  white-space: nowrap;
   color: var(--ink-soft);
   transition: color 140ms ease;
 }
@@ -116,6 +134,20 @@ a {
 .nav a:focus-visible,
 .nav a[aria-current="page"] {
   color: var(--mint-deep);
+}
+
+.nav .nav-cta {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--perola);
+  white-space: nowrap;
+}
+
+.nav .nav-cta:hover,
+.nav .nav-cta:focus-visible {
+  color: var(--perola);
+  background: var(--mint-deep);
 }
 
 /* ---------- Hero ---------- */
@@ -141,7 +173,9 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  /* The key art is portrait: bias the crop upward so the runner's head stays
+     in frame inside the short landscape hero. */
+  object-position: center 30%;
 }
 
 .hero-shade {
@@ -193,11 +227,73 @@ a {
   color: var(--ink);
 }
 
-.hero-actions {
+.hero-note {
+  margin: 18px 0 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ---------- Store buttons ---------- */
+.store-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 30px;
+}
+
+.store-buttons.centered {
+  justify-content: center;
+}
+
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--perola);
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(76, 88, 112, 0.28);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.store-button:hover,
+.store-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(76, 88, 112, 0.34);
+}
+
+.store-button svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.store-button span {
+  display: grid;
+  line-height: 1.15;
+}
+
+.store-button small {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.store-button strong {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.16rem;
 }
 
 /* ---------- Buttons ---------- */
@@ -233,35 +329,42 @@ a {
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* ---------- Availability band ---------- */
-.availability-band {
+/* ---------- Stats band ---------- */
+.stats-band {
   background: linear-gradient(90deg, #eff6ff, #f3ecff);
   color: var(--ink);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
 
-.band-inner {
+.stats {
   display: grid;
-  grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
   width: min(1160px, calc(100% - 36px));
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 34px 0;
+  list-style: none;
 }
 
-.band-kicker {
-  margin: 0;
+.stats li {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+
+.stats strong {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--mint-deep);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1;
+  color: var(--ink);
 }
 
-.band-inner p:last-child {
-  margin: 0;
-  color: var(--ink);
-  line-height: 1.6;
+.stats span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
 }
 
 /* ---------- Sections ---------- */
@@ -281,7 +384,7 @@ a {
 }
 
 .section-heading h2,
-.legal-copy h2 {
+.download-band h2 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 700;
@@ -369,8 +472,7 @@ a {
 }
 
 .trail-step p,
-.system-card p,
-.legal-copy p {
+.system-card p {
   margin: 0;
   color: var(--ink);
   line-height: 1.62;
@@ -383,7 +485,7 @@ a {
 
 .system-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -413,62 +515,150 @@ a {
   background: var(--pessego);
 }
 
+.system-card:nth-child(5) {
+  background: var(--rosa);
+}
+
 .system-card p {
   color: var(--ink);
   opacity: 0.85;
 }
 
-/* ---------- Legal preview ---------- */
-.legal-preview {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
-  gap: clamp(28px, 6vw, 76px);
-  align-items: center;
+/* ---------- Screenshots ---------- */
+.shots-section {
   border-top: 1px solid var(--hairline);
 }
 
-.legal-copy p:last-child {
-  margin-top: 18px;
+/* Scroll-snap rail on narrow screens; the media query below turns it into a
+   grid once three phones fit side by side. */
+.shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 236px;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  margin: 0 calc(-1 * clamp(18px, 5vw, 0px));
+  scrollbar-width: thin;
 }
 
-.legal-actions {
-  display: grid;
-  gap: 14px;
+.shot {
+  margin: 0;
+  scroll-snap-align: start;
 }
 
-.link-card {
-  display: grid;
-  gap: 8px;
-  padding: 24px;
-  border-radius: var(--radius);
-  background: var(--surface);
-  color: var(--ink);
-  text-decoration: none;
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
   border: 1px solid var(--hairline);
-  box-shadow: var(--shadow-soft);
-  transition: transform 160ms ease, border-color 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.link-card:hover,
-.link-card:focus-visible {
-  transform: translateX(4px);
-  border-color: var(--mint-deep);
+  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
-.link-card span {
-  color: var(--mint-deep);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.shot figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
 
-.link-card strong {
+.shot figcaption strong {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 1.24rem;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+/* ---------- FAQ ---------- */
+.faq-section {
+  border-top: 1px solid var(--hairline);
+}
+
+.faq {
+  display: grid;
+  gap: 12px;
+  width: min(820px, 100%);
+}
+
+.faq-item {
+  padding: 4px 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--mint-deep);
+  transition: transform 160ms ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  margin: 0 0 22px;
+  line-height: 1.62;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.faq-item a {
+  color: var(--mint-deep);
+  font-weight: 600;
+}
+
+/* ---------- Download band ---------- */
+.download-band {
+  background: linear-gradient(90deg, #eff6ff, #f3ecff);
+  border-top: 1px solid var(--hairline);
+}
+
+.download-band .band-inner {
+  width: min(760px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(52px, 8vw, 88px) 0;
+  text-align: center;
+}
+
+.download-band .fine-print {
+  margin-top: 26px;
+  text-align: center;
+}
+
+.download-band .fine-print a {
+  color: var(--mint-deep);
+  font-weight: 600;
 }
 
 /* ---------- Footer ---------- */
@@ -609,6 +799,21 @@ a {
 }
 
 /* ---------- Responsive ---------- */
+@media (min-width: 901px) {
+  .shots {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-columns: auto;
+    gap: 32px 24px;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .shot img {
+    width: min(100%, 300px);
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
@@ -628,10 +833,12 @@ a {
     padding-top: 156px;
   }
 
-  .band-inner,
-  .legal-preview,
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .trail {
@@ -657,13 +864,20 @@ a {
     font-size: clamp(3rem, 17vw, 5rem);
   }
 
-  .hero-actions,
+  /* The hero's own store buttons sit right below the nav on phones, so the
+     header CTA is redundant and only makes the nav overflow. */
+  .nav .nav-cta {
+    display: none;
+  }
+
+  .store-buttons,
   .footer nav {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .button {
+  .button,
+  .store-button {
     width: 100%;
   }
 

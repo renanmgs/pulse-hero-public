@@ -3,57 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pulse Hero turns real training into RPG progress with workouts, quests, loot, classes, and team play.">
-  <meta name="keywords" content="Pulse Hero, fitness RPG, workout game, walking RPG, health game, fitness app">
+  <title>Pulse Hero - Fitness RPG for iOS and Android</title>
+  <meta name="description" content="Pulse Hero turns real training into RPG progress. Steps and workouts earn XP, gear and loot for a turn-based RPG with 13 classes, dungeons, an endless tower and PvP. Free on iOS and Android.">
   <meta name="theme-color" content="#f8f6f0">
-  <title>Pulse Hero - Fitness RPG</title>
-  <link rel="icon" type="image/png" href="assets/pulse-hero-icon.png">
-  <link rel="apple-touch-icon" href="assets/pulse-hero-icon.png">
+  <link rel="canonical" href="https://pulsehero.charactercraftapp.com/">
+  <link rel="icon" type="image/png" href="/assets/pulse-hero-icon.png">
+  <link rel="apple-touch-icon" href="/assets/pulse-hero-icon.png">
+  <meta name="apple-itunes-app" content="app-id=6788211881">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="preload" as="image" href="/assets/pulse-hero-key-art.webp" fetchpriority="high">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Pulse Hero - Fitness RPG">
-  <meta property="og:description" content="Train in the real world. Grow a hero in a turn-based RPG.">
-  <meta property="og:image" content="assets/pulse-hero-key-art.png">
+  <meta property="og:site_name" content="Pulse Hero">
+  <meta property="og:url" content="https://pulsehero.charactercraftapp.com/">
+  <meta property="og:title" content="Pulse Hero - Fitness RPG for iOS and Android">
+  <meta property="og:description" content="Train in the real world. Grow a hero in a turn-based RPG. Steps and workouts earn XP, gear and loot.">
+  <meta property="og:image" content="https://pulsehero.charactercraftapp.com/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pulse Hero key art: a runner on a glowing trail surrounded by a sword and shield.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pulse Hero - Fitness RPG for iOS and Android">
+  <meta name="twitter:description" content="Train in the real world. Grow a hero in a turn-based RPG.">
+  <meta name="twitter:image" content="https://pulsehero.charactercraftapp.com/assets/og-cover.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Pulse Hero",
+    "alternateName": "Pulse Hero: Fitness RPG",
+    "url": "https://pulsehero.charactercraftapp.com/",
+    "image": "https://pulsehero.charactercraftapp.com/assets/og-cover.jpg",
+    "description": "Pulse Hero is a fitness RPG. Steps and workouts synced from Health Connect or Apple Health earn XP, gold, materials and loot for a turn-based RPG with 13 classes, a campaign, dungeons, an endless tower and PvP.",
+    "applicationCategory": "GameApplication",
+    "applicationSubCategory": "Role Playing",
+    "operatingSystem": "iOS 15.0 or later, Android 8.0 or later",
+    "inLanguage": ["en", "pt-BR"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": { "@type": "Organization", "name": "MGS Studio" },
+    "publisher": { "@type": "Organization", "name": "MGS Studio" },
+    "downloadUrl": [
+      "https://apps.apple.com/us/app/pulse-hero-fitness-rpg/id6788211881",
+      "https://play.google.com/store/apps/details?id=app.fithero.fit_hero"
+    ],
+    "privacyPolicyUrl": "https://pulsehero.charactercraftapp.com/privacy-policy.html"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header" data-header>
-    <a class="brand" href="./" aria-label="Pulse Hero home">
-      <img src="assets/pulse-hero-icon.png" alt="" class="brand-mark">
+    <a class="brand" href="/" aria-label="Pulse Hero home">
+      <img src="/assets/pulse-hero-icon.png" alt="" class="brand-mark" width="40" height="40">
       <span>Pulse Hero</span>
     </a>
     <nav class="nav" aria-label="Primary navigation">
       <a href="#how-it-works">How it works</a>
+      <a href="#screens">Screens</a>
       <a href="#systems">Systems</a>
-      <a href="./privacy-policy.html">Privacy</a>
-      <a href="./delete-account.html">Delete account</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#download">Download</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <picture class="hero-media">
-        <img src="assets/pulse-hero-key-art.png" alt="Pulse Hero key art with the app icon and store artwork.">
+        <img src="/assets/pulse-hero-key-art.webp" alt="" width="853" height="1844" fetchpriority="high">
       </picture>
       <div class="hero-shade"></div>
       <div class="hero-content">
-        <p class="eyebrow">Fitness RPG for mobile</p>
+        <p class="eyebrow">Out now on iOS and Android</p>
         <h1 id="hero-title">Pulse Hero</h1>
-        <p class="hero-copy">Train in the real world. Grow a hero in a turn-based RPG built around steps, workouts, quests, loot, classes, and team play.</p>
-        <div class="hero-actions" aria-label="Store and legal links">
-          <a class="button primary" href="#availability">Store status</a>
-          <a class="button secondary" href="./privacy-policy.html">Privacy policy</a>
+        <p class="hero-copy">Train in the real world. Grow a hero in a turn-based RPG. Your steps and workouts become XP, gold, materials and loot &mdash; then you spend them on classes, gear and a combat deck.</p>
+
+        <div class="store-buttons">
+          <a class="store-button" href="https://apps.apple.com/us/app/pulse-hero-fitness-rpg/id6788211881">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="store-button" href="https://play.google.com/store/apps/details?id=app.fithero.fit_hero">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
         </div>
+        <p class="hero-note">Free to play &middot; iOS 15+ and Android 8+ &middot; English and Portuguese</p>
       </div>
     </section>
 
-    <section class="availability-band" id="availability" aria-label="Store availability">
-      <div class="band-inner">
-        <p class="band-kicker">Launch preparation</p>
-        <p>Pulse Hero is being prepared for public release on mobile stores. This site hosts the public product page, privacy policy, and account deletion information required for store review.</p>
-      </div>
+    <section class="stats-band" aria-label="Pulse Hero at a glance">
+      <ul class="stats">
+        <li><strong>13</strong><span>playable classes</span></li>
+        <li><strong>106</strong><span>exercises in the library</span></li>
+        <li><strong>4</strong><span>challenge modes</span></li>
+        <li><strong>9</strong><span>gathering and crafting professions</span></li>
+      </ul>
     </section>
 
     <section class="section trail-section" id="how-it-works">
@@ -65,23 +119,56 @@
         <article class="trail-step">
           <span class="step-signal"></span>
           <h3>Connect activity</h3>
-          <p>Optional Health Connect and Apple Health access lets steps, workouts, distance, calories, and heart rate count when you train.</p>
+          <p>Optional Health Connect or Apple Health access lets steps, distance, workouts, calories and heart rate count when you train. You can also log a workout in the app and skip the sync entirely.</p>
         </article>
         <article class="trail-step">
           <span class="step-signal"></span>
           <h3>Claim RPG rewards</h3>
-          <p>Validated movement can grant XP, gold, materials, encounters, and quest progress after server-side checks.</p>
+          <p>Validated movement grants XP, gold, materials, encounters and quest progress. Every credit is checked server-side against plausibility caps, so a leaderboard is worth something.</p>
         </article>
         <article class="trail-step">
           <span class="step-signal"></span>
           <h3>Build your hero</h3>
-          <p>Spend progression on classes, talents, gear, runes, crafting, and a combat deck that fits how you play.</p>
+          <p>Spend progression on 13 classes, gear, runes, professions and a four-skill combat deck. Each class has its own passive, signature and skill ladder.</p>
         </article>
         <article class="trail-step">
           <span class="step-signal"></span>
           <h3>Train with people</h3>
-          <p>Friends, teams, trades, and duels connect real activity to social RPG goals without requiring constant screen time.</p>
+          <p>Friends, groups, trading and hero-vs-hero duels connect real activity to social goals &mdash; without asking you to keep the app open all day.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section shots-section" id="screens">
+      <div class="section-heading compact">
+        <p class="eyebrow">From the app</p>
+        <h2>Train, evolve, battle.</h2>
+      </div>
+      <div class="shots" role="group" aria-label="Pulse Hero screenshots">
+        <figure class="shot">
+          <img src="/assets/shots/missions.webp" alt="Missions screen showing a two-week training streak, a weekly chest countdown and a daily step focus." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>Daily focus and streaks</strong>Step goals, weekly chest progress and a streak that survives a rest day.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/shots/workouts.webp" alt="Workout screen showing a Push / Pull / Legs plan with six exercises, sets, reps and rest times." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>Real training plans</strong>Push/Pull/Legs, upper-lower, 5K, mobility and more, with sets, reps and rest.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/shots/hero.webp" alt="Hero screen showing a level 40 Blademaster with equipment slots, runes and a power score." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>Your hero</strong>Equipment, runes, power score, and everything the training paid for.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/shots/classes.webp" alt="Classes screen showing the Blademaster with its class passive, signature skill and four skills." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>13 classes</strong>Each with a passive, a signature and four skills you upgrade along an A/B ladder.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/shots/challenges.webp" alt="Challenges screen listing Campaign, Dungeons, Endless Tower and Arena." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>Somewhere to spend it</strong>Campaign, dungeons, an endless tower and a weekly PvP arena league.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/shots/combat.webp" alt="Turn-based battle against three enemies with a health bar, skill deck and item, dodge and flee actions." width="575" height="1280" loading="lazy" decoding="async">
+          <figcaption><strong>Turn-based combat</strong>Positioning, statuses and resource management &mdash; or hit Auto and 2x.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -93,55 +180,100 @@
       <div class="system-grid">
         <article class="system-card">
           <h3>Workouts and ambient steps</h3>
-          <p>Start dedicated workouts, import supported health sessions, or sync day-to-day steps for lighter progress.</p>
+          <p>Record a workout from a plan or free-form, import a supported health session, or just let the day's steps sync for lighter progress. A rules-based coach adapts the plan to what you actually did.</p>
         </article>
         <article class="system-card">
           <h3>Turn-based combat</h3>
-          <p>Encounters, dungeons, campaign scenes, skills, talents, and gear feed a tactical RPG layer.</p>
+          <p>Campaign scenes, dungeons, an endless tower and random encounters, all fought with a deck of class skills, statuses, items and gear.</p>
         </article>
         <article class="system-card">
           <h3>Classes and builds</h3>
-          <p>Unlock class paths through physical challenges, then swap builds as your training goals change.</p>
+          <p>Thirteen flat classes &mdash; no starter tax, no locked tiers. Unlock them through physical challenges and swap builds whenever your training goals change.</p>
         </article>
         <article class="system-card">
-          <h3>Privacy-first controls</h3>
-          <p>Health, location, camera, and notification permissions are optional and controlled by your device settings.</p>
+          <h3>Professions and crafting</h3>
+          <p>Mine, forage and hunt for materials, then feed six crafting professions: armorsmith, weaponsmith, leatherworker, tailor, alchemist and runecrafter.</p>
+        </article>
+        <article class="system-card">
+          <h3>Social and PvP</h3>
+          <p>Friends, groups, trading, hero-vs-hero duels and a weekly arena league that ranks builds instead of reflexes.</p>
         </article>
       </div>
     </section>
 
-    <section class="section legal-preview">
-      <div class="legal-copy">
-        <p class="eyebrow">Store review links</p>
-        <h2>Public legal pages for the mobile release.</h2>
-        <p>The privacy policy explains the data Pulse Hero uses for accounts, health sync, workouts, location, purchases, social features, and account deletion.</p>
+    <section class="section faq-section" id="faq">
+      <div class="section-heading compact">
+        <p class="eyebrow">Before you install</p>
+        <h2>Straight answers.</h2>
       </div>
-      <div class="legal-actions">
-        <a class="link-card" href="./privacy-policy.html">
-          <span>Privacy Policy</span>
-          <strong>Read how data is handled</strong>
-        </a>
-        <a class="link-card" href="./delete-account.html">
-          <span>Delete Account</span>
-          <strong>Request or perform deletion</strong>
-        </a>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Is it free?</summary>
+          <p>Yes. Pulse Hero is free to download and play. There are optional in-app purchases (a premium currency and a monthly premium subscription for the fitness planning and analysis features), plus an optional season pass.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there ads?</summary>
+          <p>Only rewarded ones, and only if you choose to watch them. There are no forced interstitials, no banners and no ads on app open &mdash; a rewarded video is something you opt into for a specific reward, never something that interrupts you.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I have to connect a health app?</summary>
+          <p>No. Health Connect on Android and Apple Health on iOS are optional. Without them you can still record workouts directly in the app. If you do connect, access is read-only &mdash; Pulse Hero does not write anything back to your health record.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What health data does it read?</summary>
+          <p>Steps, distance (walking/running, cycling, swimming), active and total calories, heart rate, and workout sessions. It is used for your own fitness progress and game progression. It is not used for advertising and not sold. The <a href="/privacy-policy.html">privacy policy</a> has the full list.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I cheat by shaking my phone?</summary>
+          <p>Not usefully. Activity is ingested by the game server and validated against caps and plausibility checks before anything is credited, so the arena and the leagues rank training rather than wrist technique.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need an internet connection?</summary>
+          <p>Yes. Pulse Hero needs a connection to play: the game server is the authority on your hero, and activity is validated and credited server-side rather than on the device.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which devices and languages?</summary>
+          <p>iPhone and iPad on iOS 15 or later, and Android 8.0 or later. The app is available in English and Brazilian Portuguese.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I delete my account?</summary>
+          <p>From inside the app, or by request. The steps and what gets erased are on the <a href="/delete-account.html">account deletion page</a>.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="download-band" id="download">
+      <div class="band-inner">
+        <p class="eyebrow">Get Pulse Hero</p>
+        <h2>Your next workout is worth experience points.</h2>
+        <div class="store-buttons centered">
+          <a class="store-button" href="https://apps.apple.com/us/app/pulse-hero-fitness-rpg/id6788211881">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="store-button" href="https://play.google.com/store/apps/details?id=app.fithero.fit_hero">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <p class="fine-print">Questions or bug reports: <a href="mailto:mgsstudiodeveloper@gmail.com">mgsstudiodeveloper@gmail.com</a></p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div>
-      <img src="assets/pulse-hero-icon.png" alt="" class="footer-mark">
+      <img src="/assets/pulse-hero-icon.png" alt="" class="footer-mark" width="34" height="34">
       <p>Pulse Hero</p>
     </div>
     <nav aria-label="Footer navigation">
-      <a href="./privacy-policy.html">Privacy Policy</a>
-      <a href="./delete-account.html">Delete Account</a>
-      <a href="mailto:mgsstudiodeveloper@gmail.com">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/delete-account.html">Delete Account</a>
+      <a href="mailto:mgsstudiodeveloper@gmail.com">Support</a>
     </nav>
-    <p class="fine-print">Copyright 2026 MGS Studio. Pulse Hero is a fitness RPG in public release preparation.</p>
+    <p class="fine-print">Copyright 2026 MGS Studio. Apple and App Store are trademarks of Apple Inc. Google Play is a trademark of Google LLC.</p>
   </footer>
 
-  <script src="assets/script.js"></script>
+  <script src="/assets/script.js"></script>
 </body>
 </html>
