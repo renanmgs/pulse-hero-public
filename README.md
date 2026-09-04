@@ -31,6 +31,27 @@ Pages at **https://pulsehero.charactercraftapp.com/**.
 `assets/og-cover.jpg` (1200×630) is the social-share card; it is generated from
 the key art, not hand-designed, so regenerate it if the key art changes.
 
+`assets/art/` is game art resized for the page — class crests, profession icons
+and the exercise illustrations in the marquee. `tools/build-site-art.py`
+generates it straight from `app/assets/images/` in the game repo, trimming the
+transparent margins off the icons so they sit at the same optical size in a
+grid. Re-run it after changing which exercises are picked, or after the game's
+art changes:
+
+```
+python tools/build-site-art.py
+```
+
+The script hard-codes the game repo path at the top; edit it if the checkout
+moves.
+
+## Press kit
+
+The press kit is **not** part of this repo — it is roughly 60 MB of
+full-resolution source art, which does not belong in a GitHub Pages checkout.
+It is assembled by `app/store_assets/build_press_kit.py` in the game repo and
+distributed separately.
+
 ## Local preview
 
 ```

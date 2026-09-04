@@ -394,6 +394,14 @@ a {
   color: var(--ink);
 }
 
+.section-lede {
+  width: min(620px, 100%);
+  margin: 18px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
 /* ---------- Trail (how it works) ---------- */
 .trail {
   counter-reset: step;
@@ -515,13 +523,195 @@ a {
   background: var(--pessego);
 }
 
-.system-card:nth-child(5) {
-  background: var(--rosa);
-}
-
 .system-card p {
   color: var(--ink);
   opacity: 0.85;
+}
+
+/* ---------- Exercise marquee ---------- */
+.library-section {
+  border-top: 1px solid var(--hairline);
+}
+
+/* Breaks out of the centred section to run edge to edge. The tinted band is
+   not decoration: the exercise art is pale pastel and disappears on pérola. */
+.marquee {
+  position: relative;
+  margin: 44px calc(50% - 50vw) 0;
+  padding: 26px 0 18px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #eff6ff, #f3ecff);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Fade the figures in and out at the edges. These are gradients rather than a
+   mask on .marquee so the tinted band itself still reaches both edges; the two
+   colours are the band gradient's own endpoints. */
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 110px);
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #eff6ff, rgba(239, 246, 255, 0));
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, #f3ecff, rgba(243, 236, 255, 0));
+}
+
+/* Two identical rows sit side by side and the pair slides exactly half its
+   own width, so the loop has no visible seam. */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 64s linear infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 0;
+  padding: 0 4px;
+  list-style: none;
+}
+
+.marquee-row img {
+  display: block;
+  width: auto;
+  height: 190px;
+  filter: saturate(1.2);
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Class crests ---------- */
+.classes-section {
+  border-top: 1px solid var(--hairline);
+}
+
+.crests {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 30px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crests li {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  text-align: center;
+}
+
+.crests img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(76, 88, 112, 0.16));
+  transition: transform 220ms ease;
+}
+
+.crests li:hover img {
+  transform: translateY(-6px) scale(1.06);
+}
+
+.crests strong {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.crests span {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* ---------- Professions ---------- */
+.professions-section {
+  border-top: 1px solid var(--hairline);
+}
+
+.profession-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.profession-group h3 {
+  margin: 0 0 16px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint-deep);
+}
+
+.professions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.professions li {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 20px 10px 16px;
+  text-align: center;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.professions li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.professions img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.professions span {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: var(--ink);
 }
 
 /* ---------- Screenshots ---------- */
@@ -849,6 +1039,14 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .profession-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .marquee-row img {
+    height: 150px;
+  }
+
   .fine-print {
     text-align: left;
   }
@@ -889,6 +1087,31 @@ a {
     min-height: 0;
   }
 
+  /* Thirteen crests two-up is seven rows of scrolling. Three-up fits, but only
+     once the essence lines come out — they wrap to four lines at this width. */
+  .crests {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 10px;
+  }
+
+  .crests img {
+    width: 74px;
+    height: 74px;
+    margin-bottom: 6px;
+  }
+
+  .crests strong {
+    font-size: 0.9rem;
+  }
+
+  .crests span {
+    display: none;
+  }
+
+  .professions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .legal-shell {
     padding-top: 158px;
   }
@@ -904,5 +1127,6 @@ a {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+    animation: none !important;
   }
 }
