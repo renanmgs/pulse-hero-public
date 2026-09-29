@@ -58,6 +58,36 @@
       </section>
     </article>
 
+    <!--
+      Friend invites (/i/<code>). The code is shown in large type on purpose:
+      an App Link is only delivered to an app that is ALREADY installed, so
+      whoever reaches this page is about to install and will have to TYPE the
+      code on the character-creation screen. That is the main path here, not a
+      fallback.
+    -->
+    <article class="legal-document" id="invite-view" hidden>
+      <p class="eyebrow">Friend invite</p>
+      <h1>You were invited to Pulse Hero</h1>
+      <p>Enter this code when you create your character:</p>
+      <p><strong id="invite-code" style="font-size:2.25rem;letter-spacing:.18em"></strong></p>
+      <p>You start with 100 Aether, and your friend is rewarded once you train on three different days.</p>
+
+      <section>
+        <h2>New here?</h2>
+        <p>Install Pulse Hero, create your character, and type the code above in the "Invite code" field.</p>
+        <p>
+          <a class="button primary" href="https://apps.apple.com/us/app/pulse-hero-fitness-rpg/id6788211881">Download on the App Store</a>
+          <a class="button secondary" href="https://play.google.com/store/apps/details?id=app.fithero.fit_hero">Get it on Google Play</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Already have the app?</h2>
+        <p><a class="button primary" id="open-invite-app" href="#">Open in Pulse Hero</a></p>
+        <p class="fine-print">An invite code is only accepted while creating a character, so it does nothing on an account you already play.</p>
+      </section>
+    </article>
+
     <article class="legal-document" id="notfound-view" hidden>
       <p class="eyebrow">404</p>
       <h1>Page not found</h1>
@@ -69,12 +99,21 @@
     (function () {
       // Event ids are the same slug the app validates: letters, digits, - and _.
       var match = location.pathname.match(/^\/e\/([A-Za-z0-9_-]+)\/?$/);
+      // Invite codes are the app's friend codes: 6 chars from an unambiguous
+      // alphabet (no 0/O/1/I), so a misread never shows a code that cannot work.
+      var invite = location.pathname.match(/^\/i\/([2-9A-HJ-NP-Za-hj-np-z]{6})\/?$/);
       if (match) {
         var id = match[1];
         document.getElementById('event-code').textContent = id;
         document.getElementById('open-app').href = 'fithero://event/' + encodeURIComponent(id);
         document.getElementById('event-view').hidden = false;
         document.title = 'Event ' + id + ' - Pulse Hero';
+      } else if (invite) {
+        var code = invite[1].toUpperCase();
+        document.getElementById('invite-code').textContent = code;
+        document.getElementById('open-invite-app').href = 'fithero://invite/' + encodeURIComponent(code);
+        document.getElementById('invite-view').hidden = false;
+        document.title = 'Invite ' + code + ' - Pulse Hero';
       } else {
         document.getElementById('notfound-view').hidden = false;
       }
